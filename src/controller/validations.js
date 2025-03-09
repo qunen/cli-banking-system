@@ -43,7 +43,7 @@ const validateYearMonth = (yearMonth) => {
 const vallidateTransactionType = (type) => {
     // Validate transaction type to be 'D' or 'W'
     if (type.toUpperCase() !== 'D' && type.toUpperCase() !== 'W') {
-        return `Invalid type! Type should only be 'D' for deposit or 'W' for withdrawal.\n`;
+        return 'Invalid type! Type should only be \'D\' for deposit or \'W\' for withdrawal.\n';
     }
     return null;
 };
@@ -51,7 +51,7 @@ const vallidateTransactionType = (type) => {
 const validateAmount = (amountString) => {
     // Validate amount to be positive number with up to 2 decimal place
     const amount = Number(amountString);
-    if (!amount || amount < 0) {
+    if (!amount || amount <= 0) {
         return 'Invalid amount! Amount should be a positive number.\n';
     }
     if (amountString.indexOf('.') !== -1 && amountString.length - amountString.indexOf('.') - 1 > 2) {
