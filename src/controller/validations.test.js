@@ -103,7 +103,7 @@ describe('Sucessfully validate transaction type', () => {
 
     for (const testCase of testCases) {
         it(testCase.name, () => {
-            const err = validations.vallidateTransactionType(testCase.input);
+            const err = validations.validateTransactionType(testCase.input);
             expect(err).toBeNull();
         });
     }
@@ -127,7 +127,7 @@ describe('Fail validation for invalid transaction type', () => {
 
     for (const testCase of testCases) {
         it(testCase.name, () => {
-            const err = validations.vallidateTransactionType(testCase.input);
+            const err = validations.validateTransactionType(testCase.input);
             expect(err).toBe('Invalid type! Type should only be \'D\' for deposit or \'W\' for withdrawal.\n');
         });
     }

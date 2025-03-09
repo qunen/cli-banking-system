@@ -40,7 +40,7 @@ const validateYearMonth = (yearMonth) => {
     return null;
 };
 
-const vallidateTransactionType = (type) => {
+const validateTransactionType = (type) => {
     // Validate transaction type to be 'D' or 'W'
     if (type.toUpperCase() !== 'D' && type.toUpperCase() !== 'W') {
         return 'Invalid type! Type should only be \'D\' for deposit or \'W\' for withdrawal.\n';
@@ -63,6 +63,6 @@ const validateAmount = (amountString) => {
 module.exports = {
     validateDateString,
     validateYearMonth,
-    vallidateTransactionType,
+    validateTransactionType,
     validateAmount
 };

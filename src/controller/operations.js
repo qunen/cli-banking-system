@@ -27,7 +27,7 @@ const inputTransactions = async () => {
     }
 
     // Validate type input
-    err = validations.vallidateTransactionType(type);
+    err = validations.validateTransactionType(type);
     if (err) {
         console.log(err);
         return;
@@ -35,6 +35,10 @@ const inputTransactions = async () => {
 
     // Validate amount input
     err = validations.validateAmount(amountString);
+    if (err) {
+        console.log(err);
+        return;
+    }
 
     // Check if account exists
     if (accountTransactions[account] === undefined) {
@@ -117,7 +121,7 @@ const defineInterestRule = async () => {
         return;
     }
     if (rate >= 100 || rate <= 0) {
-        console.log('Invalid interest rate! Interest rate should be greater than 0 and less than 100.');
+        console.log('Invalid interest rate! Interest rate should be greater than 0 and less than 100.\n');
         return;
     }
 
@@ -152,11 +156,11 @@ const generateStatement = async () => {
 
     // Validate account
     if (accountTransactions[account] === undefined) {
-        console.log(`Invalid account! Account ${account} does not exists.`);
+        console.log(`Invalid account! Account ${account} does not exists.\n`);
         return;
     }
     if (accountTransactions[account][0].transactionDate.slice(0,6) > yearMonth) {
-        console.log(`Invalid month! Account ${account} was not created yet.`);
+        console.log(`Invalid month! Account ${account} was not created yet.\n`);
         return;
     }
 
